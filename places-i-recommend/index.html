@@ -14,6 +14,7 @@
         <h1>📍 Top 3 Study Spots in QC</h1>
         <p>My personal recommendations for the best places to study in Quezon City</p>
         <a href="../index.html" class="nav-link">← Back to Home</a>
+        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
     </header>
 
     <div class="container">
@@ -82,5 +83,26 @@
             </div>
         </a>
     </div>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = '☀️ Light Mode';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '🌙 Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>
