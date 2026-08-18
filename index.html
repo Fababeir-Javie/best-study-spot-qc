@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My top 3 favorite study spots in Quezon City - detailed reviews and recommendations for students.">
-    <title>Top 3 Study Spots in QC | Places I Recommend</title>
+    <meta name="description" content="Discover my favorite study spots in Quezon City - personal recommendations for the best places to study, relax, and be productive.">
+    <title>Places I Recommend | Study Spots in QC</title>
     <style>
         * {
             box-sizing: border-box;
@@ -24,13 +24,14 @@
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: #fff;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
+            letter-spacing: -1px;
         }
         header p {
             margin-top: 0.5rem;
@@ -59,6 +60,71 @@
             margin: 2rem auto;
             padding: 0 1rem;
             flex: 1;
+        }
+        .hero-section {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .hero-section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2980b9 0%, #2c5aa0 100%);
+            color: #fff;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(41, 128, 185, 0.4);
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3f5a 100%);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+        .feature-card h3 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .feature-card p {
+            color: #666;
+            margin: 1rem 0;
         }
         .place-card {
             background: #fff;
@@ -155,73 +221,46 @@
         }
         @media (max-width: 768px) {
             header h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
-            header p {
-                font-size: 0.95rem;
+            .hero-section {
+                padding: 2rem 1.5rem;
             }
-            .place-card {
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            .place-card h2 {
-                font-size: 1.4rem;
-            }
-            .tags {
-                margin-bottom: 1rem;
-            }
-            .tag {
-                font-size: 0.8rem;
-                padding: 0.3rem 0.8rem;
+            .hero-section h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🎓 Top 3 Study Spots in QC</h1>
-        <p>My personal recommendations for the best places to study in Quezon City</p>
-        <a href="./places-i-recommend/index.html" class="nav-link">← Back to Home</a>
+        <h1>� Places I Recommend</h1>
+        <p>Discover my favorite study spots and chill places in Quezon City</p>
     </header>
 
     <div class="container">
-        <!-- Spot 1 -->
-        <div class="place-card">
-            <h2><span class="place-number">1</span>UPD Sunken Garden</h2>
-            <div class="tags">
-                <span class="tag">Open Space</span>
-                <span class="tag">Best Sightseeing Spot</span>
-                <span class="tag tag-red">No Signal</span>
-            </div>
-            <div class="description">
-                <p>Located at the heart of the UP Diliman campus, the Sunken Garden is a massive, bowl-shaped open grassy field surrounded by giant Acacia trees. It is one of the most iconic spots in Quezon City for students to unwind, read a book, or hang out with friends. While it doesn't have literal air-conditioning, the wide-open space offers plenty of fresh, natural breeze and shade, making it a perfect outdoor tambayan for sightseeing and relaxing away from your computer screen.</p>
-            </div>
+        <div class="hero-section">
+            <h2>Welcome to My Recommendations</h2>
+            <p>As a student constantly looking for the perfect study environment, I've discovered some amazing spots in Quezon City. Whether you need a quiet space to focus, a social atmosphere to keep you energized, or the perfect ambiance to grind through your projects, I've got you covered.</p>
+            <a href="./places-i-recommend/index.html" class="cta-button">Explore My Top 3 Study Spots →</a>
         </div>
 
-        <!-- Spot 2 -->
-        <div class="place-card">
-            <h2><span class="place-number">2</span>SM Fairview</h2>
-            <div class="tags">
-                <span class="tag">Air Conditioned</span>
-                <span class="tag">Free WiFi</span>
-                <span class="tag tag-red">Crowded</span>
+        <div class="features">
+            <div class="feature-card">
+                <h3>📚 Curated Selection</h3>
+                <p>Hand-picked study spots based on personal experience and different study preferences.</p>
             </div>
-            <div class="description">
-                <p>While SM Fairview is a massive shopping mall rather than a traditional quiet library, it is an incredibly effective study spot if you thrive with a bit of background noise. It definitely has a lot of people, but the energetic atmosphere can actually help you stay awake and focused while grinding out computer programming assignments. The entire mall is intensely air-conditioned, and you can easily connect to the free WiFi from the food court or one of the many cafes to research technical prototypes or draft instructional materials. Plus, you have endless food options nearby whenever you need a quick break from your screen.</p>
+            <div class="feature-card">
+                <h3>💡 Detailed Reviews</h3>
+                <p>Each location includes pros, cons, and practical tips to help you choose the perfect spot.</p>
             </div>
-        </div>
-
-        <!-- Spot 3 -->
-        <div class="place-card">
-            <h2><span class="place-number">3</span>Fairview Terraces</h2>
-            <div class="tags">
-                <span class="tag">Ambiance</span>
-                <span class="tag">Free WiFi</span>
-                <span class="tag">Air Conditioned</span>
-                <span class="tag tag-red">Limited Seating</span>
+            <div class="feature-card">
+                <h3>🎯 Perfect Match</h3>
+                <p>Find the ideal study environment that matches your work style and preferences.</p>
             </div>
-            <div class="description">
-                <p>Located just across the street from SM Fairview, Ayala Malls Fairview Terraces offers a much more relaxed and premium ambiance. The mall is fully air-conditioned and provides free WiFi that is reliable enough for researching your Capstone project prototypes or building out your professional education modules. Because it is generally quieter, it is an excellent place to focus; however, you do need to watch out for limited seating in the best quiet cafes and the central garden area. If you can arrive early to secure a good spot, it is a fantastic, chill environment to grind through your reviews and ace your exams.</p>
+            <div class="feature-card">
+                <h3>😎 Places That Might Suit Your Needs</h3>
+                <p>Explore diverse study spots chosen to match your unique needs and preferences.</p>
             </div>
         </div>
     </div>
