@@ -323,11 +323,4 @@ body.dark-mode .hover-overlay span {
     }
 }
 
-/* --- SCROLL PERFORMANCE FIXES (Now outside the media query!) --- */
-.place-card, 
-.hover-overlay, 
-.description p {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform, opacity;
-}
+
