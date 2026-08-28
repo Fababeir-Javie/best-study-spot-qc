@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover my favorite study spots in Quezon City - personal recommendations for the best places to study, relax, and be productive.">
+    <title>Places I Recommend | Study Spots in QC</title>
+    
+    <!-- This is the new line that links your CSS file! -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📍 Places I Recommend</h1>
+        <p>Discover my favorite study spots and chill places in Quezon City</p>
+        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <div class="hero-section">
+            <h2>Welcome to My Recommendations</h2>
+            <p>As a student constantly looking for the perfect study environment, I've discovered some amazing spots in Quezon City. Whether you need a quiet space to focus, a social atmosphere to keep you energized, or the perfect ambiance to grind through your projects, I've got you covered.</p>
+            <a href="./places-i-recommend/index.html" class="cta-button">Explore My Top 3 Study Spots →</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>📚 Curated Selection</h3>
+                <p>Hand-picked study spots based on personal experience and different study preferences.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💡 Detailed Reviews</h3>
+                <p>Each location includes pros, cons, and practical tips to help you choose the perfect spot.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎯 Perfect Match</h3>
+                <p>Find the ideal study environment that matches your work style and preferences.</p>
+            </div>
+            <div class="feature-card">
+                <h3>😎 Places That Might Suit Your Needs</h3>
+                <p>Explore diverse study spots chosen to match your unique needs and preferences.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = '☀️ Light Mode';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '🌙 Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>

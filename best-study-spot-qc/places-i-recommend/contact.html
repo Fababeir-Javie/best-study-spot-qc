@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch - send feedback, ask questions, or recommend places for the Places I Recommend guide.">
+    <title>Contact | Places I Recommend</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📍 Contact</h1>
+        <p>Send feedback, ask questions, or recommend a place</p>
+        <a href="index.html" class="nav-link">← Back to Study Spots</a>
+        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <div class="place-card">
+            <h2>Get in Touch</h2>
+            <p class="description">Have a suggestion, found an error, or want to share your experience at one of these spots? Fill out the form below and I'll get back to you.</p>
+
+            <form action="#" method="post" id="contact-form" novalidate>
+                <fieldset>
+                    <legend>Your details</legend>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message" id="name-error">Please enter your name.</span>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="email-error">Please enter a valid email address.</span>
+
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="suggest">Suggest a Place</option>
+                        <option value="correct">Correct a Detail</option>
+                        <option value="question">Ask a Question</option>
+                        <option value="experience">Share Your Experience</option>
+                        <option value="other">Something Else</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                    <span class="error-message" id="message-error">Please enter a message.</span>
+
+                    <button type="submit" class="cta-button">Send message</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = '\u2600\ufe0f Light Mode';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '\u2600\ufe0f Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '\ud83c\udf19 Dark Mode';
+            }
+        });
+
+        // Form validation
+        const form = document.getElementById('contact-form');
+
+        function validateField(input) {
+            const errorEl = document.getElementById(input.id + '-error');
+            if (!input.validity.valid) {
+                input.classList.add('invalid');
+                input.classList.remove('valid');
+                if (errorEl) errorEl.classList.add('visible');
+            } else {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                if (errorEl) errorEl.classList.remove('visible');
+            }
+        }
+
+        // Validate on submit
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.classList.add('submitted');
+
+            const fields = form.querySelectorAll('input[required], textarea[required]');
+            let allValid = true;
+
+            fields.forEach((field) => {
+                validateField(field);
+                if (!field.validity.valid) allValid = false;
+            });
+
+            if (allValid) {
+                alert('Thank you! Your message has been sent.');
+                form.reset();
+                form.classList.remove('submitted');
+                fields.forEach((field) => {
+                    field.classList.remove('valid', 'invalid');
+                });
+                document.querySelectorAll('.error-message').forEach((el) => {
+                    el.classList.remove('visible');
+                });
+            }
+        });
+
+        // Live validation after first submit attempt
+        form.querySelectorAll('input[required], textarea[required]').forEach((field) => {
+            field.addEventListener('input', () => {
+                if (form.classList.contains('submitted')) {
+                    validateField(field);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
