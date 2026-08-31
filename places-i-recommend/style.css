@@ -294,9 +294,64 @@ body.dark-mode .hover-overlay span {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
-/* Contact Form Styles */
+/* Form Styles */
 form {
     margin-top: 1.5rem;
+}
+
+.required {
+    color: #c62828;
+    font-weight: 700;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+    background: #f0f4f8;
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    accent-color: #2980b9;
+}
+
+/* Dark Mode Radio / Checkbox */
+body.dark-mode .radio-label,
+body.dark-mode .checkbox-label {
+    color: #d1d5db;
+}
+
+body.dark-mode .radio-label:hover,
+body.dark-mode .checkbox-label:hover {
+    background: #2a3040;
+}
+
+body.dark-mode .required {
+    color: #ff7675;
 }
 
 fieldset {

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suggest a new study spot or chill place for the Places I Recommend guide.">
+    <title>Suggest a Place | Places I Recommend</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📍 Suggest a Place</h1>
+        <p>Know a great spot that should be on this list? Let me know!</p>
+        <a href="../index.html" class="nav-link">← Back to Home</a>
+        <a href="index.html" class="nav-link">← Study Spots</a>
+        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <div class="place-card">
+            <h2>Submit Your Recommendation</h2>
+            <p class="description">Fill out the form below to recommend a place. I'll review every suggestion and add the best ones to the guide!</p>
+
+            <form action="#" method="post" id="suggest-form" novalidate>
+                <!-- Place Name -->
+                <label for="place-name">Place name <span class="required">*</span></label>
+                <input type="text" id="place-name" name="place-name" placeholder="e.g. The Coffee Bean &amp; Tea Leaf" required>
+                <span class="error-message" id="place-name-error">Please enter a place name.</span>
+
+                <!-- Category — Radio Buttons (one answer only) -->
+                <fieldset>
+                    <legend>Category <span class="required">*</span></legend>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="food" required>
+                            🍽️ Food / Cafe
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="study-spot">
+                            📚 Study Spot
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="outdoors">
+                            🌿 Outdoors
+                        </label>
+                    </div>
+                </fieldset>
+                <span class="error-message" id="category-error">Please pick a category.</span>
+
+                <!-- What's Good About It — Checkboxes (multiple allowed) -->
+                <fieldset>
+                    <legend>What's good about it?</legend>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="good-points" value="affordable">
+                            💰 Affordable
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="good-points" value="good-wifi">
+                            📶 Good WiFi
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="good-points" value="quiet">
+                            🤫 Quiet
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Contact Email -->
+                <label for="contact-email">Contact email <span class="required">*</span></label>
+                <input type="email" id="contact-email" name="contact-email" placeholder="you@example.com" required>
+                <span class="error-message" id="contact-email-error">Please enter a valid email address.</span>
+
+                <button type="submit" class="cta-button">Submit suggestion</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = '\u2600\ufe0f Light Mode';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '\u2600\ufe0f Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '\ud83c\udf19 Dark Mode';
+            }
+        });
+
+        // Form validation
+        const form = document.getElementById('suggest-form');
+
+        function validateField(input) {
+            const errorEl = document.getElementById(input.id + '-error');
+            if (!input.validity.valid) {
+                input.classList.add('invalid');
+                input.classList.remove('valid');
+                if (errorEl) errorEl.classList.add('visible');
+            } else {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                if (errorEl) errorEl.classList.remove('visible');
+            }
+        }
+
+        function validateRadios() {
+            const checked = form.querySelector('input[name="category"]:checked');
+            const errorEl = document.getElementById('category-error');
+            if (!checked) {
+                if (errorEl) errorEl.classList.add('visible');
+                return false;
+            } else {
+                if (errorEl) errorEl.classList.remove('visible');
+                return true;
+            }
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.classList.add('submitted');
+
+            const fields = form.querySelectorAll('input[required]');
+            let allValid = true;
+
+            fields.forEach((field) => {
+                validateField(field);
+                if (!field.validity.valid) allValid = false;
+            });
+
+            if (!validateRadios()) allValid = false;
+
+            if (allValid) {
+                alert('Thank you! Your suggestion has been submitted.');
+                form.reset();
+                form.classList.remove('submitted');
+                fields.forEach((field) => {
+                    field.classList.remove('valid', 'invalid');
+                });
+                document.querySelectorAll('.error-message').forEach((el) => {
+                    el.classList.remove('visible');
+                });
+            }
+        });
+
+        // Live validation after first submit attempt
+        form.querySelectorAll('input[required]').forEach((field) => {
+            field.addEventListener('input', () => {
+                if (form.classList.contains('submitted')) {
+                    validateField(field);
+                }
+            });
+        });
+
+        // Validate radio buttons on change after first submit
+        form.querySelectorAll('input[name="category"]').forEach((radio) => {
+            radio.addEventListener('change', () => {
+                if (form.classList.contains('submitted')) {
+                    validateRadios();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
