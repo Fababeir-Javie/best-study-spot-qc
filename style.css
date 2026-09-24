@@ -156,6 +156,26 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     transform: translateY(-3px);
 }
+
+/* Responsive card row — flex + wrap is the whole layout, no media queries.
+   flex: 1 1 240px = grow to fill, shrink if needed, aim for ~240px.
+   240px is effectively the breakpoint: raise it and cards wrap sooner. */
+.place-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.place-grid > a {
+    flex: 1 1 240px;
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.place-card {
+    flex: 1 1 240px;
+    margin-bottom: 0;
+}
 .place-card h2 {
     color: #2c3e50;
     margin-top: 0;
