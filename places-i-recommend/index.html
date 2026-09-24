@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>📍 Top 3 Study Spots in QC</h1>
-        <p>My personal recommendations for the best places to study in Quezon City</p>
-        <a href="../index.html" class="nav-link">← Back to Home</a>
-        <a href="suggest.html" class="nav-link">✉️ Suggest a Place</a>
-        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    <!-- Header has exactly two direct children: the brand block and the nav -->
+    <header class="site-header">
+        <div class="site-brand">
+            <h1>📍 Top 3 Study Spots in QC</h1>
+            <p>My personal recommendations for the best places to study in Quezon City</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="index.html" class="nav-link">📚 Study Spots</a></li>
+                <li><a href="suggest.html" class="nav-link">💡 Suggest a Place</a></li>
+                <li><a href="contact.html" class="nav-link">✉️ Contact</a></li>
+                <li><button id="theme-toggle" class="nav-link">🌙 Dark Mode</button></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">

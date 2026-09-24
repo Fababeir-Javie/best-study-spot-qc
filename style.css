@@ -12,36 +12,54 @@ body {
     display: flex;
     flex-direction: column;
 }
-header {
+/* Site header: a flex container that pushes the brand to the far left
+   and the nav to the far right. Exactly two direct children inside. */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: #fff;
-    text-align: center;
-    padding: 4rem 1rem;
+    padding: 1rem 2rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-header h1 {
+.site-header h1 {
     margin: 0;
-    font-size: 2.8rem;
+    font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: -1px;
+    text-align: left;
 }
-header p {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
+.site-header p {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
     color: #ecf0f1;
     font-weight: 300;
+    text-align: left;
+}
+/* The nav's ul is its own flex container with a gap between links */
+.site-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .nav-link {
-    display: inline-block;
     background: rgba(255,255,255,0.2);
     color: #fff;
-    padding: 0.5rem 1.2rem;
+    padding: 0.45rem 1rem;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 0.95rem;
-    margin-top: 1rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
 }
 .nav-link:hover {
     background: rgba(255,255,255,0.3);
@@ -53,6 +71,8 @@ header p {
     padding: 0 1rem;
     flex: 1;
 }
+/* Hero banner centred horizontally AND vertically with flexbox —
+   the min-height gives the vertical centring room to work */
 .hero-section {
     background: #fff;
     border-radius: 12px;
@@ -60,6 +80,11 @@ header p {
     padding: 3rem 2rem;
     text-align: center;
     margin-bottom: 3rem;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .hero-section h2 {
     color: #2c3e50;
@@ -218,7 +243,7 @@ body.dark-mode {
     color: #f4f4f9;
 }
 
-body.dark-mode header {
+body.dark-mode .site-header {
     background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
@@ -298,8 +323,14 @@ body.dark-mode .place-card {
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
+    .site-header {
+        padding: 1rem;
+    }
+    .site-header h1 {
+        font-size: 1.3rem;
+    }
+    .site-header nav ul {
+        gap: 12px;
     }
     .hero-section {
         padding: 2rem 1.5rem;

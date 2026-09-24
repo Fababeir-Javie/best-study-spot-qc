@@ -9,12 +9,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>📍 Suggest a Place</h1>
-        <p>Know a great spot that should be on this list? Let me know!</p>
-        <a href="../index.html" class="nav-link">← Back to Home</a>
-        <a href="index.html" class="nav-link">← Study Spots</a>
-        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    <!-- Header has exactly two direct children: the brand block and the nav -->
+    <header class="site-header">
+        <div class="site-brand">
+            <h1>📍 Suggest a Place</h1>
+            <p>Know a great spot that should be on this list? Let me know!</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="index.html" class="nav-link">📚 Study Spots</a></li>
+                <li><a href="suggest.html" class="nav-link">💡 Suggest a Place</a></li>
+                <li><a href="contact.html" class="nav-link">✉️ Contact</a></li>
+                <li><button id="theme-toggle" class="nav-link">🌙 Dark Mode</button></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">

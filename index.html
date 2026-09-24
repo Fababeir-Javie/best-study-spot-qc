@@ -10,11 +10,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>📍 Places I Recommend</h1>
-        <p>Discover my favorite study spots and chill places in Quezon City</p>
-        <a href="./places-i-recommend/contact.html" class="nav-link">✉️ Contact Us</a>
-        <button id="theme-toggle" class="nav-link" style="cursor: pointer; margin-top: 1rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2);">🌙 Dark Mode</button>
+    <!-- Header has exactly two direct children: the brand block and the nav -->
+    <header class="site-header">
+        <div class="site-brand">
+            <h1>📍 Places I Recommend</h1>
+            <p>Discover my favorite study spots and chill places in Quezon City</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="./index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="./places-i-recommend/index.html" class="nav-link">📚 Study Spots</a></li>
+                <li><a href="./places-i-recommend/suggest.html" class="nav-link">💡 Suggest a Place</a></li>
+                <li><a href="./places-i-recommend/contact.html" class="nav-link">✉️ Contact</a></li>
+                <li><button id="theme-toggle" class="nav-link">🌙 Dark Mode</button></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">
